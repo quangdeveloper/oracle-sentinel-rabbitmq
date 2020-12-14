@@ -1,11 +1,10 @@
 package vn.vnpay.oraclejdbc.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import vn.vnpay.oraclejdbc.config.RedisService;
 import vn.vnpay.oraclejdbc.dao.QrTerminalDAO;
 import vn.vnpay.oraclejdbc.service.QrTerminalService;
@@ -18,6 +17,7 @@ import java.util.Map;
 @RequestMapping("")
 public class QrTerminalController {
 
+    Logger logger = LoggerFactory.getLogger(QrTerminalController.class);
 
     @Autowired
     private QrTerminalService qrTerminalService;
@@ -26,12 +26,11 @@ public class QrTerminalController {
     private RedisService redisService;
 
     @GetMapping("/qr-terminal")
-    public ResponseEntity<Object> findAll() {
+    public ResponseEntity<Object> findAll(@RequestParam("pageNo") Long pageNo, @RequestParam("pageSize") Long pageSize) {
 
         Map inParams = new HashMap();
-        inParams.put("pi_pageNo", 1);
-        inParams.put("pi_pageSize", 10);
-
+        inParams.put("PI_PAGE_NO", pageNo);
+        inParams.put("PI_PAGE_SIZE", pageSize);
         return ResponseEntity.ok(qrTerminalService.listQrTerminal(inParams));
     }
 

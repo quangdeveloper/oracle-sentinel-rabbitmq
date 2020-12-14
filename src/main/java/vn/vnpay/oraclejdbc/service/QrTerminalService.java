@@ -8,6 +8,4 @@ import java.util.Map;
 public interface QrTerminalService {
 
     List<QrTerminal> listQrTerminal(Map map);
-
-
 }

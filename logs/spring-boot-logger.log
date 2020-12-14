@@ -1,0 +1,30 @@
+2020-12-14 10:12:23,523 INFO org.springframework.boot.StartupInfoLogger [main] Starting OraclejdbcApplication using Java 15.0.1 on quangnv3 with PID 9588 (C:\Project\Orcale-2\target\classes started by quangnv3 in C:\Project\Orcale-2)
+2020-12-14 10:12:23,526 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: dev
+2020-12-14 10:12:24,130 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-14 10:12:24,131 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2020-12-14 10:12:24,142 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
+2020-12-14 10:12:24,150 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-14 10:12:24,153 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-14 10:12:24,163 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2020-12-14 10:12:24,467 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2020-12-14 10:12:24,474 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2020-12-14 10:12:24,474 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2020-12-14 10:12:24,474 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-12-14 10:12:24,475 INFO org.apache.juli.logging.DirectJDKLog [main] Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2020-12-14 10:12:24,475 INFO org.apache.juli.logging.DirectJDKLog [main] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-12-14 10:12:24,475 INFO org.apache.juli.logging.DirectJDKLog [main] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-12-14 10:12:24,479 INFO org.apache.juli.logging.DirectJDKLog [main] OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-12-14 10:12:24,578 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2020-12-14 10:12:24,578 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 985 ms
+2020-12-14 10:12:25,196 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-14 10:12:25,320 INFO com.zaxxer.hikari.HikariDataSource [main] pool1 - Starting...
+2020-12-14 10:12:25,424 INFO com.zaxxer.hikari.HikariDataSource [main] pool1 - Start completed.
+2020-12-14 10:12:25,558 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2020-12-14 10:12:25,577 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-14 10:12:25,579 INFO org.springframework.amqp.rabbit.connection.AbstractConnectionFactory [main] Attempting to connect to: [10.22.7.88:6789]
+2020-12-14 10:12:25,604 INFO org.springframework.amqp.rabbit.connection.AbstractConnectionFactory [main] Created new connection: rabbitConnectionFactory#3c28e5b6:0/SimpleConnection@2b1a901d [delegate=amqp://qrcode@10.22.7.88:6789/qrcode, localPort= 56860]
+2020-12-14 10:12:25,607 INFO org.springframework.amqp.rabbit.core.RabbitAdmin [main] Auto-declaring a non-durable, auto-delete, or exclusive Queue (tien.test.qrcode.2) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2020-12-14 10:12:25,655 INFO org.springframework.boot.StartupInfoLogger [main] Started OraclejdbcApplication in 2.582 seconds (JVM running for 3.361)
+2020-12-14 10:12:37,138 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-14 10:12:37,139 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-12-14 10:12:37,140 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms

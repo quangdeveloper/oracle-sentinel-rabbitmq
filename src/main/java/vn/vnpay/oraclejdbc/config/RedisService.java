@@ -12,7 +12,6 @@ public class RedisService {
     private RedisTemplate redisTemplate;
 
     public void setKey(String key, Object value) {
-
         redisTemplate.opsForValue().setIfAbsent(key, GsonUtil.toJson(value));
     }
 

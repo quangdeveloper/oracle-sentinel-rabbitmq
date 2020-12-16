@@ -4,6 +4,6 @@ import java.util.Map;
 
 public interface QrTerminalDAO {
 
-    Map getList(Map inParams) throws SQLException, CloneNotSupportedException ;
+    Map<String, Object> searchQrTerminalByCondition(Map<String, Object> inParams);
 
 }

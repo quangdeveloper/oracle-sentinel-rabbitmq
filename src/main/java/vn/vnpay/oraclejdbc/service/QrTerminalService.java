@@ -1,11 +1,14 @@
 package vn.vnpay.oraclejdbc.service;
 
-import vn.vnpay.oraclejdbc.model.QrTerminal;
+
+import vn.vnpay.oraclejdbc.dto.PageDTO;
+import vn.vnpay.oraclejdbc.dto.QrTerminalDTO;
 
 import java.util.List;
-import java.util.Map;
 
 public interface QrTerminalService {
 
-    List<QrTerminal> listQrTerminal(Map map);
+    PageDTO searchQrTerminal(Long pageNo, Long pageSize);
+
+    Object searchQrTerminalOnRedis(String key);
 }

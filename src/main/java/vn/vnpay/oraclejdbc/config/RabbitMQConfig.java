@@ -12,6 +12,49 @@ import vn.vnpay.oraclejdbc.rabbit_mq.Receiver;
 @Configuration
 public class RabbitMQConfig {
 
+    @Value("${rabbitMQ.queueName}")
+    private String queueName;
+
+    @Value("${rabbitMQ.toppicExchangeName}")
+    private String toppicExchangeName;
+
+    @Value("${rabbitMQ.routingKey}")
+    private String routingKey;
+
+    @Bean
+    Queue queue() {
+        return new Queue(queueName, false);
+    }
+
+    @Bean
+    TopicExchange topicExchange() {
+        return new TopicExchange(toppicExchangeName);
+    }
+
+    @Bean
+    Binding binding(Queue queue, TopicExchange topicExchange) {
+        return BindingBuilder.bind(queue).to(topicExchange).with(routingKey);
+    }
+
+    @Bean
+    SimpleMessageListenerContainer simpleMessageListenerContainer(ConnectionFactory connectionFactory,
+                                                                  MessageListenerAdapter messageListenerAdapter) {
+        SimpleMessageListenerContainer simpleMessageListenerContainer =
+                new SimpleMessageListenerContainer();
+        simpleMessageListenerContainer.setConnectionFactory(connectionFactory);
+        simpleMessageListenerContainer.setQueueNames(queueName);
+        simpleMessageListenerContainer.setMessageListener(messageListenerAdapter);
+        return simpleMessageListenerContainer;
+    }
+
+    @Bean
+    MessageListenerAdapter messageListenerAdapter(Receiver receiver) {
+        return new MessageListenerAdapter(receiver, "receiveMessage");
+    }
+
+}
+
+
 //    @Value("${rabbitMQ.topicExchangeName}")
 //    private String topicExchangeName;
 
@@ -20,21 +63,6 @@ public class RabbitMQConfig {
 
 //    @Value("${rabbitMQ.routingKey}")
 //    private String routingKey;
-
-    @Bean
-    Queue queue() {
-        return new Queue("tien.test.qrcode.2", false);
-    }
-
-    @Bean
-    TopicExchange topicExchange() {
-        return new TopicExchange("exchange-one");
-    }
-
-    @Bean
-    Binding binding(Queue queue, TopicExchange topicExchange) {
-        return BindingBuilder.bind(queue).to(topicExchange).with("routing.*");
-    }
 
 
 //    @Bean
@@ -59,7 +87,6 @@ public class RabbitMQConfig {
 //    }
 
 
-
 //    @Bean
 //    HeadersExchange headersExchange(){
 //        return new HeadersExchange("exchange-one");
@@ -69,23 +96,3 @@ public class RabbitMQConfig {
 //    Binding bindingHeaderExchange(Queue queue, HeadersExchange headersExchange){
 //        return BindingBuilder.bind(queue).to(headersExchange).where("name-control").matches("yourself");
 //    }
-
-
-
-    @Bean
-    SimpleMessageListenerContainer simpleMessageListenerContainer(ConnectionFactory connectionFactory,
-                                                                  MessageListenerAdapter messageListenerAdapter) {
-        SimpleMessageListenerContainer simpleMessageListenerContainer =
-                new SimpleMessageListenerContainer();
-        simpleMessageListenerContainer.setConnectionFactory(connectionFactory);
-        simpleMessageListenerContainer.setQueueNames("tien.test.qrcode.2");
-        simpleMessageListenerContainer.setMessageListener(messageListenerAdapter);
-        return simpleMessageListenerContainer;
-    }
-
-    @Bean
-    MessageListenerAdapter messageListenerAdapter(Receiver receiver) {
-        return new MessageListenerAdapter(receiver, "receiveMessage");
-    }
-
-}

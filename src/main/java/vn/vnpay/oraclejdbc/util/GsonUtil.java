@@ -18,4 +18,5 @@ public class GsonUtil {
         Gson gson = new Gson();
         return gson.fromJson(json, type);
     }
+
 }

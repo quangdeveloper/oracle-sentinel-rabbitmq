@@ -1,5 +1,7 @@
 package vn.vnpay.oraclejdbc.rabbit_mq;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.CountDownLatch;
@@ -7,10 +9,11 @@ import java.util.concurrent.CountDownLatch;
 @Component
 public class Receiver {
 
-    private CountDownLatch latch = new CountDownLatch(1);
+    private final Logger logger = LoggerFactory.getLogger(Receiver.class);
+
+    private final CountDownLatch latch = new CountDownLatch(1);
 
     public void receiveMessage(String message) {
-        System.out.println("Received <" + message + ">");
         latch.countDown();
     }
 
